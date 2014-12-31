@@ -48,9 +48,7 @@ class Fraction
   The stream insertion operator MUST read strings in the form "a / b" with the slash included. Omitting
   the slash will result in error. This will be retinkered later.
   The operator ^ is of lower precedence than arithmetic operators in C/C++. Therefore, to achieve PEDMAS
-  ordering, you MUST place parentheses around an expression containing a power. The ~ operator, which is
-  higher in precedence than the arithmetic operators, has also been overloaded as a power operator 
-  and works with PEDMAS. But this is a bit less intuitive and appealing to the eye. Use the one you prefer.
+  ordering, you MUST place parentheses around an expression containing a power.
   
   FUTURE CHANGES
   
@@ -299,14 +297,6 @@ public:
 	 *			Right: (a ^ c) + b
 	 */
 	Fraction operator^ ( const long long &num )
-	{
-		Fraction temp( getNumerator(), getDenominator() );
-		temp.pow( num );
-		return temp;
-	}
-	
-	// Power: identical to above, but does not require () in operator precedence. Not so nice looking though...
-	Fraction operator~ ( const long long &num )
 	{
 		Fraction temp( getNumerator(), getDenominator() );
 		temp.pow( num );
